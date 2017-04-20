@@ -10,7 +10,7 @@
     
     <title>
         
-            All categories | 
+            小数点精度四舍五入问题 | 
         
         Simple is beautiful
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Ben">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,Java,JavaScript,toFixed">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://zenghongji.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="All categories | Simple is beautiful">
+    <meta property="og:title" content="小数点精度四舍五入问题 | Simple is beautiful">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="Java"> <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="toFixed"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -220,6 +220,41 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小数点精度四舍五入问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">小数点精度四舍五入问题</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
 
 <!-- Layouts -->
 
@@ -245,7 +280,7 @@
         
     
             <p class="article-headline-p">
-                All categories
+                小数点精度四舍五入问题
             </p>
         </div>
 
@@ -264,7 +299,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Ben</strong>
-        <span>Jul 02, 2016</span>
+        <span>Apr 20, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -288,7 +323,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/Java/">Java</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/toFixed/">toFixed</a>
     </ul>
     
 
@@ -307,7 +342,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=All categories&url=https://zenghongji.github.io//categories/index.html&via=Ben" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=小数点精度四舍五入问题&url=https://zenghongji.github.io//2017/04/20/roundingmode/index.html&via=Ben" target="_blank">
             <li class="mdl-menu__item">
                 Share to Twitter
             </li>
@@ -316,7 +351,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://zenghongji.github.io//categories/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://zenghongji.github.io//2017/04/20/roundingmode/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Facebook
             </li>
@@ -325,7 +360,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://zenghongji.github.io//categories/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://zenghongji.github.io//2017/04/20/roundingmode/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Google+
             </li>
@@ -349,7 +384,34 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <h1 id="小数点精度四舍五入问题"><a href="#小数点精度四舍五入问题" class="headerlink" title="小数点精度四舍五入问题"></a>小数点精度四舍五入问题</h1><p>常见的四舍五入问题，其实并非简单。我们常用的都是以五为零界点，大于等于五的进一位，小于五的舍一位。但是，国际通行的方法却是Banker’s rounding-银行家舍入法。我们先了解下银行家舍入法的规则。</p>
+<blockquote>
+<p>四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一。</p>
+</blockquote>
+<p>看字面意思挺抽象的，我们来举个应用此法则的例子。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">double</span> num = Math.round(<span class="number">10.6</span>);</div><div class="line">		System.out.println(num);</div><div class="line">		num = Math.round(<span class="number">10.5</span>);</div><div class="line">        System.out.println(num);</div><div class="line">        num = Math.round(<span class="number">11.5</span>);</div><div class="line">		System.out.println(num);</div><div class="line">		num = Math.round(<span class="number">10.4</span>);</div><div class="line">		System.out.println(num);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>打印结果如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">11.0</span></div><div class="line"><span class="number">11.0</span></div><div class="line"><span class="number">12.0</span></div><div class="line"><span class="number">10.0</span></div></pre></td></tr></table></figure>
+<p>为什么“银行家”要搞那么复杂呢，因为要公平。因为自然计算的结果，出现0-9任一数字的概率是均等。常用的四舍五入会将这个均等打破，变成舍掉的概率为0.4，而进的概率为0.6。银行家舍入法则会缩小两者间的概率差距。</p>
+<hr>
+<p>为什么开篇说这个银行家舍入法呢，因为Java从1.5版本开始，关于四舍五入的方法有七种，这是最难理解的一种。其他规则参考下图：</p>
+<p><img src="/uploads/RoundingMode.png" alt="RoundingMode"></p>
+<p>其中最后一种HALF_EVEN模式，应用的就是银行家舍入法；而HALF_UP模式就是常用的四舍五入法。</p>
+<hr>
+<p>一般在财务软件或者银行系统中，对数字的精度要求会很高。<strong>因为关于钱的事就没有小事</strong>！招标系统也是此类应用。目前遇到的问题是，业务规则要求价格精度标准为小数点后四位数，超过四位数的使用通常四舍五入法处理。在现实情况下，微小元器件的单价会非常小，甚至小到报价精确到小数点五位以后。如果投标单价是按照PCS来计，则需要特别注意这个值的精度问题，避免不必要的损失。因为小元件数量一般都上百万级别，所以稍微有点误差的话，总量的金额就会体现出来。</p>
+<p>数据提交过程，一般做前后端两道的数据验证。前端数据截取JavaScript的toFixed()有个坑。这是一个经典的<a href="http://www.bbsmax.com/A/kvJ3wA7JgM/" target="_blank" rel="external">数字精度丢失问题</a>。而且<a href="http://www.magicsite.cn/blog/web/JS/JS297041.html" target="_blank" rel="external">不同的浏览器所产生的结果还不一致</a>。具体描述请看前面两篇链接文章内容。除了文章最后提到的解决办法，通常还有一种是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> roundedNum = (<span class="built_in">Math</span>.round( num * <span class="number">100</span> ) / <span class="number">100</span>).toFixed(<span class="number">2</span>);</div><div class="line"><span class="comment">//一般情况下，获取的结果都等于期望值 比如 num=859.385，结果则为859.39</span></div><div class="line"><span class="comment">//但是 num=35.855，结果却不是期望的35.86，而是35.85</span></div><div class="line"><span class="comment">//说明这种方法不可靠</span></div></pre></td></tr></table></figure>
+<p>更多的解决办法看这个<a href="http://jsfiddle.net/cCX5y/35/" target="_blank" rel="external">Demo</a>。</p>
+<p>我自己选用的比较简单方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">toFixed</span>(<span class="params"> num, precision </span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (+(<span class="built_in">Math</span>.round(+(num + <span class="string">'e'</span> + precision)) + <span class="string">'e'</span> + -precision)).toFixed(precision);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后端数据截取办法一般以下三种：</p>
+<p>方法1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> f = <span class="number">3.1415926</span>;</div><div class="line">BigDecimal b = <span class="keyword">new</span> BigDecimal(f);</div><div class="line"><span class="keyword">double</span> f1 = b.setScale(<span class="number">2</span>, RoundingMode.HALF_UP).doubleValue();</div></pre></td></tr></table></figure>
+<p>方法2:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java.text.DecimalFormat df = <span class="keyword">new</span> java.text.DecimalFormat(<span class="string">"#.00"</span>);</div><div class="line">df.format(<span class="number">3.1415926</span>);</div></pre></td></tr></table></figure>
+<p>方法3:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> d = <span class="number">3.1415926</span>;</div><div class="line">String result = String.format(<span class="string">"%.2f"</span>);</div></pre></td></tr></table></figure>
+
     
 
     
@@ -418,8 +480,8 @@
 
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://zenghongji.github.io/categories/index.html';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://zenghongji.github.io/categories/index.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://zenghongji.github.io/2017/04/20/roundingmode/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://zenghongji.github.io/2017/04/20/roundingmode/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     $('.btn_click_load').click(function() {  //click to load comments
         (function() { // DON'T EDIT BELOW THIS LINE
@@ -455,6 +517,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2016/12/17/Just-a-App/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -631,6 +701,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
